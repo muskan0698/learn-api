@@ -61,7 +61,7 @@ app.get("/users", (req, res) => {
 // 🧩 GET /users/:id - Get user by ID
 app.get("/users/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  console.log(`🔍 Fetching user with ID: ${id}`); 
+  console.log(`🔍 Fetching user with ID: ${id}`);
 
   const user = users[id];
   if (!user) {
