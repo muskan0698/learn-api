@@ -62,11 +62,12 @@ app.get("/users", (req, res) => {
 app.get("/users/:id", (req, res) => {
   const id = parseInt(req.params.id);
   console.log(`🔍 Fetching user with ID: ${id}`);
+  console.log("📩 Incoming request hearder:", req.headers);
 
   const user = users[id];
   if (!user) {
     console.warn(`⚠️ User with ID ${id} not found.`);
-    return res.status(404).json({ message: "User not found." });
+    return res.status(404).json({ message: "No user found." });
   }
 
   console.log(`✅ User found:`, user);
