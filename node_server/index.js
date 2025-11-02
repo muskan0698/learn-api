@@ -77,6 +77,7 @@ app.get("/users/:id", (req, res) => {
 app.delete("/users/:id", (req, res) => {
   const id = parseInt(req.params.id);
   console.log(`🗑️ Request to delete user with ID: ${id}`);
+  console.log("📩 Incoming request hearder:", req.headers);
 
   if (!users[id]) {
     console.warn(`⚠️ User with ID ${id} not found for deletion.`);
