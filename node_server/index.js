@@ -27,6 +27,7 @@ app.use((req, res, next) => {
 // 🧩 POST /users - Add a new user
 app.post("/users", (req, res) => {
   console.log("📩 Incoming request:", req.body);
+  console.log("📩 Incoming request hearder:", req.headers);
 
   const { name, email } = req.body;
 
@@ -65,7 +66,7 @@ app.get("/users/:id", (req, res) => {
   const user = users[id];
   if (!user) {
     console.warn(`⚠️ User with ID ${id} not found.`);
-    return res.status(404).json({ message: "User not found." });
+    return res.status(404).json({ message: "No user found." });
   }
 
   console.log(`✅ User found:`, user);
@@ -76,6 +77,7 @@ app.get("/users/:id", (req, res) => {
 app.delete("/users/:id", (req, res) => {
   const id = parseInt(req.params.id);
   console.log(`🗑️ Request to delete user with ID: ${id}`);
+  console.log("📩 Incoming request hearder:", req.headers);
 
   if (!users[id]) {
     console.warn(`⚠️ User with ID ${id} not found for deletion.`);
