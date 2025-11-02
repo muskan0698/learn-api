@@ -62,7 +62,7 @@ app.get("/users", (req, res) => {
 app.get("/users/:id", (req, res) => {
   const id = parseInt(req.params.id);
   console.log(`🔍 Fetching user with ID: ${id}`);
-  console.log("📩 Incoming request hearder:", req.headers);
+  
 
   const user = users[id];
   if (!user) {
