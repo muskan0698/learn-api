@@ -27,6 +27,7 @@ app.use((req, res, next) => {
 // 🧩 POST /users - Add a new user
 app.post("/users", (req, res) => {
   console.log("📩 Incoming request:", req.body);
+  console.log("📩 Incoming request hearder:", req.headers);
 
   const { name, email } = req.body;
 
